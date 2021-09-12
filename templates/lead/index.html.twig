@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leads {% endblock %}
+
+{% block body %}
+    <h1>Leads</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lead Name</th>
+                <th>Company Name</th>
+                <th>Domain</th>
+                <th>Conversion Status</th>
+                <th>Broadcast Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lead in leads %}
+            <tr>
+                <td>{{ lead.id }}</td>
+                <td>{{ lead.name }}</td>
+                <td>{{ lead.company }}</td>
+                <td>{{ lead.domain }}</td>
+                <td>{{ lead.conversionStatus ? 'Yes' : 'No' }}</td>
+                <td>{{ lead.broadcastStatus ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('lead_show', {'id': lead.id}) }}">show</a>
+                    <a href="{{ path('lead_edit', {'id': lead.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lead{% endblock %}
+
+{% block body %}
+    <h1>Lead</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lead.id }}</td>
+            </tr>
+            <tr>
+                <th>Lead Name</th>
+                <td>{{ lead.name }}</td>
+            </tr>
+            <tr>
+                <th>Company Name</th>
+                <td>{{ lead.company }}</td>
+            </tr>
+            <tr>
+                <th>Domain</th>
+                <td>{{ lead.domain }}</td>
+            </tr>
+            <tr>
+                <th>Conversion Status</th>
+                <td>{{ lead.conversionStatus ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Broadcast Status</th>
+                <td>{{ lead.broadcastStatus ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('lead_index') }}">Back to Leads</a>
+
+{% endblock %}
